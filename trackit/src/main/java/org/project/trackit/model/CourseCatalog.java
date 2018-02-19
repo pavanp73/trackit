@@ -2,14 +2,46 @@ package org.project.trackit.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity(name = "COURSE_CATALOG")
+@JsonIgnoreProperties(value = { "createdDate", "updatedDate" })
 public class CourseCatalog {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "course_id")
 	private long courseId;
+
+	@Column(name = "course_name", nullable = false, length = 35)
 	private String courseName;
+
+	@Column(name = "course_author", nullable = false, length = 35)
 	private String authorName;
-	private Date createdDate;
-	private Date updateddate;
+
+	@Column(name = "total_pages", nullable = false)
 	private int totalChapters;
+
+	@Column(name = "created_date")
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdDate;
+
+	@Column(name = "updated_date")
+	@UpdateTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updateddate;
 
 	public long getCourseId() {
 		return courseId;
