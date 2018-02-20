@@ -4,7 +4,7 @@ A simplel learning tracking tool
 
 For Developmenet purpose, I have created "development" branch which is active branch. Use this branch
 
-First pull the code from "development" branch.
+First pull the code from "master" branch.
 Create local repo of your own.
 add/modify code in your local.
 Push it to remote "development" branch.
