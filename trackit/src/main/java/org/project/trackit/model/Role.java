@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Role {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "roleId_generator")
+	@SequenceGenerator(name = "roleId_generator", sequenceName = "roleId_seq", allocationSize=1)
 	@Column(name = "role_id")
 	private long roleId;
 
