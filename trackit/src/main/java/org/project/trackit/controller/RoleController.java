@@ -20,7 +20,7 @@ public class RoleController {
 	private IRoleService roleService;
 	
 	@PostMapping
-	public String save(@RequestBody Role role){
+	public String saveRole(@RequestBody Role role){
 		
 		roleService.save(role);
 		return "Role has been added with id "+ role.getRoleId();
