@@ -1,7 +1,6 @@
 package org.project.trackit.dao;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -24,26 +23,26 @@ public class ProfileDaoImpl extends GenericDaoImpl<Profile> implements IProfileD
 	private IRoleDao roleDao;
 	
 	@Override
-	public void saveProfile(Profile profile) {
+	public void saveProfileWithRole(Profile profile) {
 		
 		String role = profile.getProfileRole();
 		System.out.println("Role "+role);
 		List<Role> roleList = new ArrayList<Role>();
 		
 		if(role == null) {
-			roleList.add(roleDao.fingByRole("USER"));
+			roleList.add(roleDao.findByRole("USER"));
 		}
 		else {
 			if(role.equalsIgnoreCase(RolesEnum.ADMIN.name())) {
-				roleList.add(roleDao.fingByRole(role));
+				roleList.add(roleDao.findByRole(role));
 			}
 			if(role.equalsIgnoreCase(RolesEnum.USER.name())) {
-				roleList.add(roleDao.fingByRole(role));
+				roleList.add(roleDao.findByRole(role));
 			}
 		}
-		
-		profile.setRoles(new HashSet<Role>(roleList));
-		save(profile);	
+		System.out.println(roleList);
+		profile.setRoles(roleList);
+		saveEntity(profile);	
 	}
 
 }

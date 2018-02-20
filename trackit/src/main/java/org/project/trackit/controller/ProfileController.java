@@ -22,20 +22,20 @@ public class ProfileController {
 	@PostMapping
 	public String save(@RequestBody Profile profile){
 		
-		profileService.saveProfile(profile);
+		profileService.saveProfileWithRole(profile);
 		return "User has been added with id "+ profile.getProfileId();
 	}
 	
 	@GetMapping
 	public List<Profile> getProfileList(){
 
-		return profileService.getList();
+		return profileService.getEntityList();
 	}
 	
 	@GetMapping("/{profileId}")
-	public Profile findById(@PathVariable("profileId") long id){
+	public Profile findProfileById(@PathVariable("profileId") long id){
 		
-		return profileService.findById(id);
+		return profileService.findEntityById(id);
 	}
 	
 }

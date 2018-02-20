@@ -15,9 +15,9 @@ public class ProfileServiceImpl extends GenericServiceImpl<Profile> implements I
 	private IProfileDao profileDao;
 	
 	@Override
-	public void saveProfile(Profile profile) {
+	public void saveProfileWithRole(Profile profile) {
 		
-		profileDao.saveProfile(profile);
+		profileDao.saveProfileWithRole(profile);
 	}
 	
 }

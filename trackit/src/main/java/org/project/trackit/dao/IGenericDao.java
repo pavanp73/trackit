@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface IGenericDao<T>{
 
-	void save(T entity);
+	void saveEntity(T entity);
 	
-	List<T> getList();
+	List<T> getEntityList();
 	
-	T findById(Object id);
+	T findEntityById(Object id);
 }

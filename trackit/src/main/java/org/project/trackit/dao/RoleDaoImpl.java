@@ -14,7 +14,7 @@ public class RoleDaoImpl extends GenericDaoImpl<Role> implements IRoleDao{
 	}
 	
 	@Override
-	public Role fingByRole(String role) {
+	public Role findByRole(String role) {
 		
 		String sql = "from "+tableName+" R where R.role=:role";
 		
