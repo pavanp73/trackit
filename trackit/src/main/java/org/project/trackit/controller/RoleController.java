@@ -27,13 +27,13 @@ public class RoleController {
 	}
 	
 	@GetMapping
-	public List<Role> list(){
+	public List<Role> getRoleList(){
 		
 		return roleService.getList();
 	}
 	
 	@GetMapping("/{roleId}")
-	public Role findById(@PathVariable("roleId") long id){
+	public Role findRoleById(@PathVariable("roleId") long id){
 		
 		return roleService.findById(id);
 	}
