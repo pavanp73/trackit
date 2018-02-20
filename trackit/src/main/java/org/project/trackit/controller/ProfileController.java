@@ -27,7 +27,7 @@ public class ProfileController {
 	}
 	
 	@GetMapping
-	public List<Profile> list(){
+	public List<Profile> getProfileList(){
 
 		return profileService.getList();
 	}
