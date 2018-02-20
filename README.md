@@ -1,8 +1,8 @@
 # trackit
-A simplel learning tracking tool
+A simple learning tracking tool
 
 
-For Developmenet purpose, I have created "development" branch which is active branch. Use this branch
+For Development purpose, I have created "development" branch which is active branch. Use this branch
 
 First pull the code from "master" branch.
 Create local repo of your own.
