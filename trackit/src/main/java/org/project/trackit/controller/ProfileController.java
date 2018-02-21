@@ -20,7 +20,7 @@ public class ProfileController {
 	private IProfileServie profileService;
 	
 	@PostMapping
-	public String save(@RequestBody Profile profile){
+	public String saveProfile(@RequestBody Profile profile){
 		
 		profileService.saveProfileWithRole(profile);
 		return "User has been added with id "+ profile.getProfileId();

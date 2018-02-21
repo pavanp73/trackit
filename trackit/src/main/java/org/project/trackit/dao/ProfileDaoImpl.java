@@ -1,6 +1,7 @@
 package org.project.trackit.dao;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -41,7 +42,7 @@ public class ProfileDaoImpl extends GenericDaoImpl<Profile> implements IProfileD
 			}
 		}
 		System.out.println(roleList);
-		profile.setRoles(roleList);
+		profile.setRoles(new HashSet<Role>(roleList));
 		saveEntity(profile);	
 	}
 

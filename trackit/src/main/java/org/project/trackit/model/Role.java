@@ -13,11 +13,10 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.project.trackit.util.DateFormatUtil;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "ROLE")
-@JsonIgnoreProperties(value = { "createdDate", "updatedDate" })
 public class Role {
 
 	@Id
@@ -56,7 +55,7 @@ public class Role {
 	}
 
 	public String getCreatedDate() {
-		return createdDate.toString();
+		return DateFormatUtil.convert(createdDate);
 	}
 
 	public void setCreatedDate(Date createdDate) {
@@ -64,7 +63,7 @@ public class Role {
 	}
 
 	public String getUpdatedDate() {
-		return updatedDate.toString();
+		return DateFormatUtil.convert(updatedDate);
 	}
 
 	public void setUpdatedDate(Date updatedDate) {
