@@ -1,4 +1,4 @@
-package org.project.trackit.serviceimpl;
+package org.project.trackit.service.impl;
 
 import javax.transaction.Transactional;
 
