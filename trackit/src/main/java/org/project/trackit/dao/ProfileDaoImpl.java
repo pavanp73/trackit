@@ -24,7 +24,7 @@ public class ProfileDaoImpl extends GenericDaoImpl<Profile> implements IProfileD
 	private IRoleDao roleDao;
 	
 	@Override
-	public void saveProfile(Profile profile) {
+	public void saveProfileWithRole(Profile profile) {
 		
 		String role = profile.getProfileRole();
 		System.out.println("Role "+role);
@@ -41,9 +41,9 @@ public class ProfileDaoImpl extends GenericDaoImpl<Profile> implements IProfileD
 				roleList.add(roleDao.findByRole(role));
 			}
 		}
-		
+		System.out.println(roleList);
 		profile.setRoles(new HashSet<Role>(roleList));
-		save(profile);	
+		saveEntity(profile);	
 	}
 
 }

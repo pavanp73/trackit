@@ -10,26 +10,28 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.project.trackit.util.DateFormatUtil;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity(name = "PROFILE")
-@JsonIgnoreProperties(value = { "createdDate", "updatedDate" })
 public class Profile {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "profileId_generator")
+	@SequenceGenerator(name = "profileId_generator", sequenceName = "profileId_seq", allocationSize = 1)
 	@Column(name = "profile_id")
 	private long profileId;
 
@@ -55,9 +57,12 @@ public class Profile {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedDate;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "PROFILE_ROLE", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "PROFILE_ROLES", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
+
+	@OneToMany(mappedBy = "profile")
+	private Set<ProfileCourses> courseList;
 
 	@Transient
 	private String profileRole;
@@ -87,7 +92,7 @@ public class Profile {
 	}
 
 	public String getCreatedDate() {
-		return createdDate.toString();
+		return DateFormatUtil.convert(createdDate);
 	}
 
 	public void setCreatedDate(Date createdDate) {
@@ -95,7 +100,7 @@ public class Profile {
 	}
 
 	public String getUpdatedDate() {
-		return updatedDate.toString();
+		return DateFormatUtil.convert(updatedDate);
 	}
 
 	public void setUpdatedDate(Date updatedDate) {
@@ -136,9 +141,18 @@ public class Profile {
 		this.lastName = lastName;
 	}
 
+	public Set<ProfileCourses> getCourseList() {
+		return courseList;
+	}
+
+	public void setCourseList(Set<ProfileCourses> courseList) {
+		this.courseList = courseList;
+	}
+
 	@Override
 	public String toString() {
 		return "Profile [profileId=" + profileId + ", email=" + email + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", roles=" + roles + "]";
+				+ lastName + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", roles=" + roles
+				+ ", courseList=" + courseList + ", profileRole=" + profileRole + "]";
 	}
 }

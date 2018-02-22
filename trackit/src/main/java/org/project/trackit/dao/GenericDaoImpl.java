@@ -30,20 +30,20 @@ public abstract class GenericDaoImpl<T> implements IGenericDao<T>{
 	}
 	
 	@Override
-	public void save(T entity) {
+	public void saveEntity(T entity) {
 		
 		entityManager.persist(entity);
 	}
 	
 	@Override
-	public List<T> getList() {
+	public List<T> getEntityList() {
 		
 		String sql = "from "+tableName.toUpperCase();
 		return entityManager.createQuery(sql).getResultList();
 	}
 	
 	@Override
-	public T findById(Object id) {
+	public T findEntityById(Object id) {
 		
 		return entityManager.find(daoType, id);
 	}

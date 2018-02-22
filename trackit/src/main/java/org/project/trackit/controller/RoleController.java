@@ -22,19 +22,19 @@ public class RoleController {
 	@PostMapping
 	public String saveRole(@RequestBody Role role){
 		
-		roleService.save(role);
+		roleService.saveEntity(role);
 		return "Role has been added with id "+ role.getRoleId();
 	}
 	
 	@GetMapping
 	public List<Role> getRoleList(){
 		
-		return roleService.getList();
+		return roleService.getEntityList();
 	}
 	
 	@GetMapping("/{roleId}")
 	public Role findRoleById(@PathVariable("roleId") long id){
 		
-		return roleService.findById(id);
+		return roleService.findEntityById(id);
 	}
 }

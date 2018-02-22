@@ -16,21 +16,21 @@ public abstract class GenericServiceImpl<T> implements IGenericService<T>{
 	private IGenericDao<T> genericDao;
 	
 	@Override
-	public void save(T entity) {
+	public void saveEntity(T entity) {
 		
-		genericDao.save(entity);
+		genericDao.saveEntity(entity);
 	}
 	
 	@Override
-	public List<T> getList() {
+	public List<T> getEntityList() {
 		
-		return genericDao.getList();
+		return genericDao.getEntityList();
 	}
 	
 	@Override
-	public T findById(Object id) {
+	public T findEntityById(Object id) {
 		
-		return genericDao.findById(id);
+		return genericDao.findEntityById(id);
 	}
 	
 }

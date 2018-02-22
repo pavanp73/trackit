@@ -4,6 +4,6 @@ import org.project.trackit.model.Profile;
 
 public interface IProfileServie extends IGenericService<Profile>{
 
-	void saveProfile(Profile profile);
+	void saveProfileWithRole(Profile profile);
 	
 }

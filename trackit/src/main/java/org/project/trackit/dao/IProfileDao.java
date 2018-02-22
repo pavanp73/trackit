@@ -4,6 +4,6 @@ import org.project.trackit.model.Profile;
 
 public interface IProfileDao extends IGenericDao<Profile>{
 
-	void saveProfile(Profile profile);
+	void saveProfileWithRole(Profile profile);
 	
 }

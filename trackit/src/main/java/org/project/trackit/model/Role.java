@@ -7,20 +7,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.project.trackit.util.DateFormatUtil;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "ROLE")
-@JsonIgnoreProperties(value = { "createdDate", "updatedDate" })
 public class Role {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "roleId_generator")
+	@SequenceGenerator(name = "roleId_generator", sequenceName = "roleId_seq", allocationSize=1)
 	@Column(name = "role_id")
 	private long roleId;
 
@@ -54,7 +55,7 @@ public class Role {
 	}
 
 	public String getCreatedDate() {
-		return createdDate.toString();
+		return DateFormatUtil.convert(createdDate);
 	}
 
 	public void setCreatedDate(Date createdDate) {
@@ -62,7 +63,7 @@ public class Role {
 	}
 
 	public String getUpdatedDate() {
-		return updatedDate.toString();
+		return DateFormatUtil.convert(updatedDate);
 	}
 
 	public void setUpdatedDate(Date updatedDate) {
