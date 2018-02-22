@@ -1,9 +1,10 @@
-package org.project.trackit.dao;
+package org.project.trackit.daoimpl;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.project.trackit.dao.IProfileCoursesDao;
 import org.project.trackit.model.CourseCatalog;
 import org.project.trackit.model.Profile;
 import org.project.trackit.model.ProfileCourses;

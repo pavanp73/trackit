@@ -1,7 +1,8 @@
-package org.project.trackit.dao;
+package org.project.trackit.daoimpl;
 
 import javax.transaction.Transactional;
 
+import org.project.trackit.dao.ICourseCatalogDao;
 import org.project.trackit.model.CourseCatalog;
 import org.springframework.stereotype.Repository;
 

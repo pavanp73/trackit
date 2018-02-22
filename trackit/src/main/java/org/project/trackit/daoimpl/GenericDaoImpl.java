@@ -1,4 +1,4 @@
-package org.project.trackit.dao;
+package org.project.trackit.daoimpl;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.project.trackit.dao.IGenericDao;
 import org.springframework.stereotype.Repository;
 
 @SuppressWarnings("unchecked")

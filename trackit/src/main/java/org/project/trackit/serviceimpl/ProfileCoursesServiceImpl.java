@@ -1,4 +1,4 @@
-package org.project.trackit.service;
+package org.project.trackit.serviceimpl;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.project.trackit.dao.IProfileCoursesDao;
 import org.project.trackit.model.ProfileCourses;
+import org.project.trackit.service.IProfileCoursesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

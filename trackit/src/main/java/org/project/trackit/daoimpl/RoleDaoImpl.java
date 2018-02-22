@@ -1,7 +1,8 @@
-package org.project.trackit.dao;
+package org.project.trackit.daoimpl;
 
 import javax.transaction.Transactional;
 
+import org.project.trackit.dao.IRoleDao;
 import org.project.trackit.model.Role;
 import org.springframework.stereotype.Repository;
 

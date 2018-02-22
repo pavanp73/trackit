@@ -1,10 +1,11 @@
-package org.project.trackit.service;
+package org.project.trackit.serviceimpl;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.project.trackit.dao.IGenericDao;
+import org.project.trackit.service.IGenericService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
