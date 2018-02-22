@@ -4,6 +4,6 @@ import org.project.trackit.model.Role;
 
 public interface IRoleDao extends IGenericDao<Role>{
 
-	Role fingByRole(String role);
+	Role findByRole(String role);
 	
 }

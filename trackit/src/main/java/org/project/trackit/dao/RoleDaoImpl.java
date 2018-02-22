@@ -14,7 +14,7 @@ public class RoleDaoImpl extends GenericDaoImpl<Role> implements IRoleDao{
 	}
 	
 	@Override
-	public Role fingByRole(String role) {
+	public Role findByRole(String role) {
 		
 		String sql = "from "+tableName+" R where R.role=:role";
 		
@@ -22,5 +22,14 @@ public class RoleDaoImpl extends GenericDaoImpl<Role> implements IRoleDao{
 				.setParameter("role", role)
 				.getSingleResult();
 	}
+	
+	public Role findRoleById(long roleId) {
+		String sql = "from "+tableName+" R where R.roleId=:roleId";
+		
+		return entityManager.createQuery(sql, Role.class)
+				.setParameter("roleId", roleId)
+				.getSingleResult();
+	}
+	
 
 }

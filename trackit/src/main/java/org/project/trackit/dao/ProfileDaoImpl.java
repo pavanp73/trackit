@@ -31,14 +31,14 @@ public class ProfileDaoImpl extends GenericDaoImpl<Profile> implements IProfileD
 		List<Role> roleList = new ArrayList<Role>();
 		
 		if(role == null) {
-			roleList.add(roleDao.fingByRole("USER"));
+			roleList.add(roleDao.findByRole("USER"));
 		}
 		else {
 			if(role.equalsIgnoreCase(RolesEnum.ADMIN.name())) {
-				roleList.add(roleDao.fingByRole(role));
+				roleList.add(roleDao.findByRole(role));
 			}
 			if(role.equalsIgnoreCase(RolesEnum.USER.name())) {
-				roleList.add(roleDao.fingByRole(role));
+				roleList.add(roleDao.findByRole(role));
 			}
 		}
 		
