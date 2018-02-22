@@ -1,4 +1,4 @@
-package org.project.trackit.daoimpl;
+package org.project.trackit.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

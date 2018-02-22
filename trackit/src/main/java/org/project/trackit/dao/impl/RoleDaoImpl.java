@@ -1,4 +1,4 @@
-package org.project.trackit.daoimpl;
+package org.project.trackit.dao.impl;
 
 import javax.transaction.Transactional;
 
